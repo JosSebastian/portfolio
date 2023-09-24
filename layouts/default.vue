@@ -1,9 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div>
+  <div class="max-w-[100dvw] min-h-[100dvh]">
     <slot />
   </div>
 </template>
 
-<style scoped></style>
+<style></style>
