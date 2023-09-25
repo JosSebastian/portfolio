@@ -12,6 +12,7 @@
       <SectionThree />
       <SectionFour />
       <SectionFive />
+      <SectionSix />
     </div>
   </div>
 </template>
