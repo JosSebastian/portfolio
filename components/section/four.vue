@@ -1,12 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div>
-    <div class="sticky top-0 px-5 py-5 text-xl font-semibold lg:hidden">
-      SKILLS
-    </div>
+  <PrimitiveSection title="SKILLS">
     <div class="px-5 py-0 text-lg"></div>
-  </div>
+  </PrimitiveSection>
 </template>
 
 <style scoped></style>
