@@ -5,6 +5,7 @@
     <div
       class="lg:w-1/2 max-h-screen p-5 md:p-7.5 lg:p-10 lg:sticky top-0 flex flex-col justify-between lg:items-center">
       <SectionOne />
+      <SectionTwo />
     </div>
     <div class="lg:w-1/2 min-h-screen p-5 md:p-7.5 lg:p-10"></div>
   </div>
