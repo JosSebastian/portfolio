@@ -1,13 +1,16 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="w-full h-full flex flex-col lg:flex-row">
+  <div class="flex flex-col w-full h-full lg:flex-row">
     <div
-      class="lg:w-1/2 max-h-screen p-5 md:p-7.5 lg:p-10 lg:sticky top-0 flex flex-col justify-between lg:items-center">
+      class="top-0 flex flex-col justify-between max-h-screen p-5 lg:w-1/2 lg:p-10 lg:sticky lg:items-center">
       <SectionOne />
       <SectionTwo />
     </div>
-    <div class="lg:w-1/2 min-h-screen p-5 md:p-7.5 lg:p-10"></div>
+    <div
+      class="top-0 flex flex-col min-h-screen justify-normal lg:w-1/2 lg:p-10">
+      <SectionThree />
+    </div>
   </div>
 </template>
 
