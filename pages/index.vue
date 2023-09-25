@@ -10,6 +10,7 @@
     <div
       class="top-0 flex flex-col min-h-screen justify-normal lg:w-1/2 lg:p-10">
       <SectionThree />
+      <SectionFour />
     </div>
   </div>
 </template>
