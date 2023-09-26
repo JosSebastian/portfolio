@@ -6,7 +6,7 @@ const { title } = defineProps<{ title?: string }>();
   <div>
     <div
       v-if="title"
-      class="sticky top-0 px-5 py-5 text-xl font-semibold lg:hidden">
+      class="sticky top-0 px-5 py-5 text-xl font-semibold lg:hidden backdrop-blur">
       {{ title }}
     </div>
     <slot />
