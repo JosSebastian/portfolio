@@ -2,7 +2,7 @@
 
 <template>
   <PrimitiveSection title="PROJECTS">
-    <div class="px-5 py-0 text-lg"></div>
+    <div class="text-lg"></div>
   </PrimitiveSection>
 </template>
 

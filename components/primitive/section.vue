@@ -3,10 +3,8 @@ const { title } = defineProps<{ title?: string }>();
 </script>
 
 <template>
-  <div>
-    <div
-      v-if="title"
-      class="sticky top-0 px-5 py-5 text-xl font-semibold lg:hidden backdrop-blur">
+  <div class="p-3 m-0">
+    <div v-if="title" class="top-0 text-xl font-semibold">
       {{ title }}
     </div>
     <slot />
