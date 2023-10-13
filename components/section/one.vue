@@ -2,14 +2,16 @@
 
 <template>
   <PrimitiveSection>
-    <div class="flex flex-col text-3xl font-bold md:text-5xl lg:text-6xl">
-      <span>Hi.</span>
-      <span>I'm Jos Sebastian,</span>
-      <span>A Computer Engineer.</span>
+    <div class="flex flex-col gap-1.5">
+      <div class="flex flex-col text-3xl font-bold md:text-5xl lg:text-6xl">
+        <span>Hi.</span>
+        <span>I'm Jos Sebastian,</span>
+        <span>A Computer Engineer.</span>
+      </div>
+      <span class="text-xl font-semibold">
+        Student at Texas A&M University.
+      </span>
     </div>
-    <span class="text-xl font-semibold">
-      Student at Texas A&M University.
-    </span>
   </PrimitiveSection>
 </template>
 

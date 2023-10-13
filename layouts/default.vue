@@ -3,10 +3,7 @@
 <template>
   <div class="max-w-[100dvw] min-h-[100dvh]">
     <Art />
-    <div class="backdrop-blur-sm">
-      <slot />
-    </div>
+    <slot />
   </div>
 </template>
-z
 <style></style>

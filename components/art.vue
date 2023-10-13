@@ -268,7 +268,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="fixed z-[-1]">
+  <div class="fixed -z-50 blur-sm">
     <canvas />
   </div>
 </template>

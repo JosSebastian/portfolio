@@ -27,7 +27,11 @@ const experiences: Experience[] = [
 <template>
   <PrimitiveSection title="EXPERIENCE">
     <div class="text-lg">
-      <div v-for="experience in experiences" class="flex gap-3">
+      <div
+        v-for="experience in experiences"
+        v-bind:key="experience.company"
+        class="flex gap-3"
+      >
         <div>
           <span>{{ experience.time.start }} - {{ experience.time.end }}</span>
         </div>
