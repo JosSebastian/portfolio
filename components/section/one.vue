@@ -2,7 +2,7 @@
 
 <template>
   <PrimitiveSection>
-    <div class="flex flex-col text-3xl font-bold md:text-4xl lg:text-5xl">
+    <div class="flex flex-col text-3xl font-bold md:text-5xl lg:text-6xl">
       <span>Hi.</span>
       <span>I'm Jos Sebastian,</span>
       <span>A Computer Engineer.</span>
