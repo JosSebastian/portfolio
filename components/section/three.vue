@@ -2,7 +2,7 @@
 
 <template>
   <PrimitiveSection title="ABOUT" type="card">
-    <div class="flex flex-col py-0 text-lg">
+    <div class="flex flex-col gap-3 my-3 text-lg">
       <span>
         Since my initial encounter with computers during my early adolescence,
         my fascination with the field has continuously deepened, solidifying my

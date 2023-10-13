@@ -8,7 +8,6 @@ interface Project {
     release?: string;
   };
 }
-
 const projects: Project[] = [
   {
     name: "Graphics Engine",
@@ -42,10 +41,11 @@ const projects: Project[] = [
     description:
       "I developed a secure web and desktop application that manages various content types using cloud and local storage.",
     skills: [
+      "Rust",
+      "Tauri",
       "TypeScript",
       "VueJS",
       "NuxtJS",
-      "Element",
       "CSS",
       "TailwindCSS",
       "HTML",
@@ -57,25 +57,25 @@ const projects: Project[] = [
     },
   },
 ];
-const incomplete: Project[] = [
-  {
-    name: "Portfolio Website",
-    description: "",
-    skills: [
-      "TypeScript",
-      "VueJS",
-      "NuxtJS",
-      "ThreeJS",
-      "GLSL",
-      "CSS",
-      "TailwindCSS",
-      "HTML",
-    ],
-    links: {
-      source: "https://github.com",
-    },
-  },
-];
+// const projects: Project[] = [
+//   {
+//     name: "Portfolio Website",
+//     description: "",
+//     skills: [
+//       "TypeScript",
+//       "VueJS",
+//       "NuxtJS",
+//       "ThreeJS",
+//       "GLSL",
+//       "CSS",
+//       "TailwindCSS",
+//       "HTML",
+//     ],
+//     links: {
+//       source: "https://github.com",
+//     },
+//   },
+// ];
 </script>
 
 <template>
