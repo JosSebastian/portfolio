@@ -80,14 +80,14 @@ const incomplete: Project[] = [
 
 <template>
   <PrimitiveSection title="PROJECTS">
-    <div class="text-lg">
+    <div class="flex flex-col gap-3 my-3 text-lg">
       <div v-for="project in projects" v-bind:key="project.name">
         <div class="font-bold">{{ project.name }}</div>
         <div class="">{{ project.description }}</div>
         <div class="text-sm">
           <div
             v-for="skill in project.skills"
-            class="inline-flex mx-0.5 my-0.5 px-1.5 py-0.5 border-2 rounded-md border-white border-opacity-50 text-white-3"
+            class="inline-flex mx-0.5 my-0.5 px-1.5 py-0.5 border-2 rounded-md border-purple-100 border-opacity-40 text-white-3 backdrop-blur"
           >
             {{ skill }}
           </div>

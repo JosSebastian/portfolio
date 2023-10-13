@@ -26,7 +26,7 @@ const experiences: Experience[] = [
 
 <template>
   <PrimitiveSection title="EXPERIENCE">
-    <div class="text-lg">
+    <div class="flex flex-col gap-3 my-3 text-lg">
       <div
         v-for="experience in experiences"
         v-bind:key="experience.company"

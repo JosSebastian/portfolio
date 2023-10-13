@@ -2,7 +2,7 @@
 
 <template>
   <PrimitiveSection title="CONTACT">
-    <div class="text-lg"></div>
+    <div class="flex flex-col gap-3 my-3 text-lg"></div>
   </PrimitiveSection>
 </template>
 
