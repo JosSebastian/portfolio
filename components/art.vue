@@ -3,14 +3,22 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 onMounted(() => {
-  let art = {
-    dimensions: {
-      width: window.innerWidth,
-      height: window.innerHeight,
-      ratio: window.innerWidth / window.innerHeight,
-    },
-    shaders: {
-      vertex: `
+  // Canvas
+  const canvas = document.querySelector("canvas")!;
+
+  // Dimensions
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  let ratio = window.innerWidth / window.innerHeight;
+
+  // Renderer
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(width, height);
+
+  // Shaders
+  let shaders = {
+    vertex: `
 
         varying vec3 vPosition;
         varying vec3 vNormal;
@@ -28,7 +36,7 @@ onMounted(() => {
         }
 
         `,
-      fragment: `
+    fragment: `
         
         varying vec3 vPosition;
         varying vec3 vNormal;
@@ -198,41 +206,40 @@ onMounted(() => {
 
         }
       `,
-    },
   };
-
-  // Canvas
-  const canvas = document.querySelector("canvas")!;
-
-  // Renderer
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(art.dimensions.width, art.dimensions.height);
 
   // Scene
   const scene = new THREE.Scene();
 
   // Camera
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    art.dimensions.ratio,
-    0.1,
-    1000
-  );
+  const camera = new THREE.PerspectiveCamera(75, ratio, 0.1, 1000);
   camera.position.z = 3;
   scene.add(camera);
 
+  // Mouse
+  const mouse = new THREE.Vector2();
+
   // Controls
-  const controls = new OrbitControls(camera, canvas);
-  controls.enableDamping = true;
-  controls.enableZoom = false;
-  controls.enablePan = false;
+  let controls = {
+    pitch: {
+      start: 0,
+      end: 0,
+      angle: 0,
+    },
+    yaw: {
+      start: 0,
+      end: 0,
+      angle: 0,
+    },
+    time: 0,
+    duration: 100,
+  };
 
   // Mesh
   const geometry = new THREE.SphereGeometry(4, 64, 64);
   const material = new THREE.ShaderMaterial({
-    vertexShader: art.shaders.vertex,
-    fragmentShader: art.shaders.fragment,
+    vertexShader: shaders.vertex,
+    fragmentShader: shaders.fragment,
     wireframe: false,
     side: THREE.DoubleSide,
     uniforms: {
@@ -247,8 +254,30 @@ onMounted(() => {
   const clock = new THREE.Clock();
   const render = () => {
     const time = clock.getElapsedTime();
+    const now = performance.now();
+    const delta = now - controls.time;
+    if (delta < controls.duration) {
+      const progress = delta / controls.duration;
+      const change = 0.075;
+      let factor = Math.max(progress, change);
+      const pitch = THREE.MathUtils.lerp(
+        controls.pitch.start,
+        controls.pitch.angle,
+        factor
+      );
+      const yaw = THREE.MathUtils.lerp(
+        controls.yaw.start,
+        controls.yaw.angle,
+        factor
+      );
+
+      camera.rotation.x = -pitch;
+      camera.rotation.y = yaw;
+
+      controls.pitch.end = pitch;
+      controls.yaw.end = yaw;
+    }
     mesh.material.uniforms.uTime.value = time;
-    controls.update();
     renderer.render(scene, camera);
     requestAnimationFrame(render);
   };
@@ -256,13 +285,27 @@ onMounted(() => {
 
   // Listener
   window.addEventListener("resize", () => {
-    art.dimensions.width = window.innerWidth;
-    art.dimensions.height = window.innerHeight;
-    art.dimensions.ratio = window.innerWidth / window.innerHeight;
-
-    renderer.setSize(art.dimensions.width, art.dimensions.height);
-    camera.aspect = art.dimensions.ratio;
+    width = window.innerWidth;
+    height = window.innerHeight;
+    ratio = window.innerWidth / window.innerHeight;
+    renderer.setSize(width, height);
+    camera.aspect = ratio;
     camera.updateProjectionMatrix();
+  });
+  window.addEventListener("mousemove", (event) => {
+    mouse.x = (event.clientX / width) * 2 - 1;
+    mouse.y = -(event.clientY / height) * 2 + 1;
+
+    const now = performance.now();
+    controls.time = now;
+
+    const scale = 0.025;
+
+    controls.pitch.angle = -(mouse.y * scale) * Math.PI;
+    controls.yaw.angle = -(mouse.x * scale) * Math.PI;
+
+    controls.pitch.start = controls.pitch.end;
+    controls.yaw.start = controls.yaw.end;
   });
 });
 </script>
@@ -273,4 +316,9 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+canvas {
+  width: 100dvw;
+  height: 100dvh;
+}
+</style>
