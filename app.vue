@@ -11,7 +11,7 @@ useHead({
     {
       rel: "icon",
       type: "image/x-icon",
-      href: "/fav.ico",
+      href: "/favicon.ico",
     },
   ],
 });
