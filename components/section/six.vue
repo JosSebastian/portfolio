@@ -87,7 +87,7 @@ const projects: Project[] = [
         <div class="text-sm">
           <div
             v-for="skill in project.skills"
-            class="inline-flex mx-0.5 my-0.5 px-1.5 py-0.5 border-2 rounded-md border-purple-100 border-opacity-40 text-white-3 backdrop-blur"
+            class="inline-flex mx-0.5 my-0.5 px-1.5 py-0.5 border-2 rounded-md border-white border-opacity-40 text-white-3 backdrop-blur"
           >
             {{ skill }}
           </div>

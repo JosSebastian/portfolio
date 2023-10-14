@@ -180,7 +180,7 @@ onMounted(() => {
           float agradient = smoothstep(0.5, 1.5, gradient);
           float lgradient = smoothstep(1.5, 4.5, gradient);
 
-          vec3 purple = vec3(100./255., 0.0, 150./255.);
+          vec3 color = vec3(100./255., 75./255., 200./255.);
           vec3 white = vec3(1.0, 1.0, 1.0);
 
           float noise = 5.0 * cnoise((vPosition + uTime * .25));
@@ -189,10 +189,10 @@ onMounted(() => {
           float area = smoothstep(0.0, fwidth(noise), noise);
           float line = 1.0 - area;
 
-          vec3 acolor = mix(purple, white, agradient);
-          vec3 lcolor = mix(purple / 1.5, white / 1.5, lgradient);
+          vec3 acolor = mix(color, white, agradient);
+          vec3 lcolor = mix(color / 1.5, white / 1.5, lgradient);
 
-          vec3 color = acolor * area + lcolor * line;
+          color = acolor * area + lcolor * line;
 
           gl_FragColor = vec4(vec3(color), 1.0);
 
