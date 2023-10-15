@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <PrimitiveSection title="ABOUT" type="card">
+  <PrimitiveSection title="ABOUT">
     <div class="flex flex-col gap-3 my-3 text-lg">
       <span>
         Since my initial encounter with computers during my early adolescence,

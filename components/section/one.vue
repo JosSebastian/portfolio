@@ -3,7 +3,7 @@
 <template>
   <PrimitiveSection>
     <div class="flex flex-col gap-1.5">
-      <div class="flex flex-col text-3xl font-bold md:text-5xl lg:text-6xl">
+      <div class="flex flex-col text-5xl font-bold ">
         <span>Hi.</span>
         <span>I'm Jos Sebastian,</span>
         <span>A Computer Engineer.</span>
