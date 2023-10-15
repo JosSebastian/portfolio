@@ -258,7 +258,7 @@ onMounted(() => {
     const delta = now - controls.time;
     if (delta < controls.duration) {
       const progress = delta / controls.duration;
-      const change = 0.075;
+      const change = 0.125;
       let factor = Math.max(progress, change);
       const pitch = THREE.MathUtils.lerp(
         controls.pitch.start,
@@ -299,7 +299,7 @@ onMounted(() => {
     const now = performance.now();
     controls.time = now;
 
-    const scale = 0.025;
+    const scale = 0.05;
 
     controls.pitch.angle = -(mouse.y * scale) * Math.PI;
     controls.yaw.angle = -(mouse.x * scale) * Math.PI;
