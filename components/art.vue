@@ -311,9 +311,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <ClientOnly class="fixed -z-50 blur-sm">
+  <div class="fixed -z-50 blur-sm">
     <canvas />
-  </ClientOnly>
+  </div>
 </template>
 
 <style scoped>
